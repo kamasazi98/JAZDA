@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        function draw() {
+var canvas = document.getElementById('image');
+var c = canvas.getContext("2d");
+c.beginPath();
+c.moveTo(20,20);
+c.lineTo(20,300);
+c.lineTo(300,300);
+c.stroke();
+var table =["1","2","3","4","5","6","7","8","9","10"];
+var postionX= 20;
+var postionY= 315;
+
+for(var i=0;i<table.length;i++)
+{ 
+postionX+=25; 
+c.font = "10pt Times New Roman";
+c.fillStyle = "blue";
+c.fillText(table[i], postionX, postionY);
+ }
+ for(var i=0;i<table.length;i++)
+{ 
+postionX=5;
+postionY-=25; 
+c.font = "10pt Times New Roman";
+c.fillStyle = "blue";
+c.fillText(table[i], postionX, postionY);
+ }
+ var dane = [1,5,4,3];
+ 			//c.fillStyle = 'green';
+            //c.fillRect(20, 250, 30, 315-250);
+
+ for(var i=0;i<dane.length;i++){
+	postionX=20+25*(i+1);
+	postionY=300-(22*dane[i]);
+	c.fillStyle = 'red';
+    c.fillRect(postionX, postionY, 10, 300-postionY);
+ }
+
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="image" width="400" height="400">
+    Twoja przeglądarka nie wspiera Canvas! Zainstaluj Internet Explorer 9.x
+</canvas>
+
+
+</body>
+</html>
