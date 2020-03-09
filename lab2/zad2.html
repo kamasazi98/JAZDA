@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function draw(form) {
+var p1 = parseFloat(form.x1.value)
+var p2 = parseFloat(form.x2.value)
+var p3 = parseFloat(form.x3.value)
+var p4 = parseFloat(form.x4.value)
+var p5 = parseFloat(form.x5.value)
+ 		var canvas = document.getElementById('image');
+		var context = canvas.getContext('2d');
+ var kolory = ["#00ff00", "#ff0000", "#0000ff", "#ff33cc", "#ffff00"];
+ var tab = [p1,p2,p3,p4,p5];
+ 
+ var suma =0;
+ for(var i=0;i<tab.length;i++)suma+=tab[i];
+ 
+ var pomocnicza = Math.PI+Math.PI/2;
+ context.font = "30px Arial";
+ for(var i=0;i<tab.length;i++){
+ context.fillStyle = kolory[i];
+ 
+ context.beginPath();
+ context.moveTo(100,110);
+ context.arc(100,110,100, pomocnicza, pomocnicza+ (tab[i]/parseFloat(suma))*Math.PI*2, false);
+ context.closePath();
+ context.fill();
+ context.stroke();
+ 
+ var mid = pomocnicza+(tab[i]/parseFloat(suma))*Math.PI;
+ context.fillStyle = "black";
+ context.fillText(tab[i],95+Math.cos(mid)*70, 110+Math.sin(mid)*70);
+ 
+ pomocnicza+= (tab[i]/parseFloat(suma))*Math.PI*2;
+ }
+ }
+
+ </script>
+</head>
+<body>
+<form>
+x1= <input type="text" name="x1" value="0"><BR>
+x2= <input type="text" name="x2" value="0"><BR>
+x3= <input type="text" name="x3" value="0"><BR>
+x4= <input type="text" name="x4" value="0"><BR>
+x5= <input type="text" name="x5" value="0"><BR>
+<input type="button" name="a" value="Rysuj"
+onclick="draw(this.form);">
+ <canvas id="image" width="300" height="300">
+</canvas>
+</form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function draw(form) {
+ var p1 = parseFloat(form.x1.value)
+ var p2 = parseFloat(form.y1.value)
+ var p3 = parseFloat(form.x2.value)
+ var p4 = parseFloat(form.y2.value)
+ var p5= parseFloat(form.x3.value)
+ var p6= parseFloat(form.y3.value)
+ var p7= parseFloat(form.r3.value)
+ var canvas = document.getElementById('image');
+ var context = canvas.getContext('2d');
+ context.fillStyle = 'red';
+ context.fillRect(p1, p1, p3, p4);
+  context.strokeRect(p1, p2, p3, p4);
+  
+  context.fillRect(p1+10, p2+10, p3, p4);
+ context.strokeRect(p1+10, p2+10, p3, p4);
+ 
+   context.fillRect(p1+20, p2+20, p3, p4);
+ context.strokeRect(p1+20, p2+20, p3, p4);
+   context.fillRect(p1+30, p2+30, p3, p4);
+ context.strokeRect(p1+30, p2+30, p3, p4);
+ 
+   context.fillRect(p1+40, p2+40, p3, p4);
+ context.strokeRect(p1+40, p2+40, p3, p4);
+   context.fillRect(p1+50, p2+50, p3, p4);
+ context.strokeRect(p1+50, p2+50, p3, p4);
+ 
+ context.beginPath();
+context.arc(p5, p6, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ context.beginPath();
+context.arc(p5+10, p6+10, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ context.beginPath();
+context.arc(p5+20, p6+20, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ context.beginPath();
+context.arc(p5+30, p6+30, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ context.beginPath();
+context.arc(p5+40, p6+40, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ context.beginPath();
+context.arc(p5+50, p6+50, p7, 0, 2 * Math.PI);
+context.fillStyle ="white";
+context.fill();
+context.closePath();
+context.stroke();
+
+ }
+
+ </script>
+</head>
+<body>
+<form>
+x= <input type="text" name="x1" value="0"><BR>
+y= <input type="text" name="y1" value="0"><BR>
+bokx= <input type="text" name="x2" value="100"><BR>
+boky= <input type="text" name="y2" value="100"><BR>
+xKola= <input type="text" name="x3" value="0"><BR>
+yKola= <input type="text" name="y3" value="0"><BR>
+rKola= <input type="text" name="r3" value="0"><BR>
+<input type="button" name="a" value="Rysuj"
+onclick="draw(this.form);">
+ <canvas id="image" width="300" height="300">
+</canvas>
+</form>
+</body>
+</html>

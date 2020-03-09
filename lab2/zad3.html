@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function draw(form) {
+var nazwaFirmy = String(form.nazwa.value)
+var przychod1 = parseFloat(form.p1.value)
+var zysk1 = parseFloat(form.z1.value)
+var przychod2 = parseFloat(form.p2.value)
+var zysk2 = parseFloat(form.z2.value)
+var przychod3 = parseFloat(form.p3.value)
+var zysk3 = parseFloat(form.z3.value)
+var przychod4 = parseFloat(form.p4.value)
+ var zysk4 = parseFloat(form.z4.value)
+var TabKwartal = ["I kwartal","II kwartal","III kwartal","IV kwartal"];
+
+ var canvas = document.getElementById('image1');
+ var context = canvas.getContext('2d');
+context.fillStyle = 'white';
+context.fillRect(0, 0, 900, 500);
+context.strokeRect(0, 0, 900, 480);
+context.strokeRect(0, 0, 900, 500);
+context.font = "20pt Arial";
+context.fillStyle = "Black";
+context.fillText(nazwaFirmy, 30, 30); 
+ //przychod i zysk 1 
+ 
+context.fillStyle = "blue";
+context.fillRect(50, 480-(przychod1/10), 20, przychod1/10);
+context.fillStyle = "red";
+context.fillRect(70, 480-(zysk1/10), 20, zysk1/10);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(TabKwartal[0], 50, 495);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(przychod1, 20, 480);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(zysk1, 90, 480);
+ //przychod i zysk 2
+ context.fillStyle = "blue";
+context.fillRect(200, 480-(przychod2/10), 20, przychod2/10);
+context.fillStyle = "red";
+context.fillRect(220, 480-(zysk2/10), 20, zysk2/10);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(TabKwartal[1], 200, 495);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(przychod2, 170, 480);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(zysk2, 240, 480);
+//przychod i zysk 3
+ context.fillStyle = "blue";
+context.fillRect(350, 480-(przychod3/10), 20, przychod3/10);
+context.fillStyle = "red";
+context.fillRect(370, 480-(zysk3/10), 20, zysk3/10);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(TabKwartal[2], 350, 495);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(przychod3, 320, 480);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(zysk3, 390, 480);
+//przychod i zysk 4
+ context.fillStyle = "blue";
+context.fillRect(500, 480-(przychod4/10), 20, przychod4/10);
+context.fillStyle = "red";
+context.fillRect(520, 480-(zysk4/10), 20, zysk4/10);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(TabKwartal[3], 500, 495);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(przychod4, 470, 480);
+context.font = "10pt Arial";
+context.fillStyle = "Black";
+context.fillText(zysk4, 540, 480);
+ }
+ </script>
+</head>
+<body>
+<form>
+Nazwa Firmy= <input type="text" name="nazwa" value="0"><BR>
+Przychod z I kwartalu= <input type="text" name="p1" value="0"><BR>
+Zysk z I kwartalu <input type="text" name="z1" value="0"><BR>
+
+Przychod z II kwartalu= <input type="text" name="p2" value="0"><BR>
+Zysk z II kwartalu <input type="text" name="z2" value="0"><BR>
+
+Przychod z III kwartalu= <input type="text" name="p3" value="0"><BR>
+Zysk z III kwartalu <input type="text" name="z3" value="0"><BR>
+
+Przychod z IV kwartalu= <input type="text" name="p4" value="0"><BR>
+Zysk z IV kwartalu <input type="text" name="z4" value="0"><BR>
+
+<input type="button" name="a" value="Rysuj"
+onclick="draw(this.form);">
+<Table>
+<TR><TD><canvas id="image1" width="900" height="500" ></TD></TR>
+<TR><TD><canvas id="image2" width="500" height="500"></TD></TR>
+
+
+</TABLE>
+</canvas>
+</form>
+</body>
+</html>
